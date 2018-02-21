@@ -6,6 +6,8 @@ block content
 	h1= title
 
 	link(rel='stylesheet', href='/stylesheets/modalStyle.css', type='text/css')
+	link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', type='text/css')
+
 	script(src='/javascripts/openModal.js')
 	input(type='button', value='Add new Concert', onclick='openModal()')
 
@@ -25,7 +27,16 @@ block content
 					div(class='divTableCell') #{concert.Time}
 
 	div(id='addForm' class='modal')
-		div(class='modal-content')
-			span(class='close' onclick='closeModal()')&times;
-			p Some text
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h4.modal-title Add new Concert
+					//span(class='close' onclick='closeModal()')&times;
+					button.close(type="button", data-dismiss="modal", aria-hidden="true", onclick='closeModal()') &times;
+
+				.modal-body
+					p Body Content
+
+				.modal-footer
+					button.btn.btn-success(type="button", data-dismiss="modal") Add Concert
 
