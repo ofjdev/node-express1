@@ -15,8 +15,17 @@ var dbParams = {
 };
 
 var con = mysql.createConnection(dbParams); // con.end();
-console.log("Connected successfully to DB with\n"+formatDB_Info());
 
+con.query("show tables;", function( err, result, fields){
+	if(err){
+		console.log("Database '"+DbName+"' NOT FOUND. Check the next Steps:\n"+
+			"1. MySQL is installed properly on this Computer.\n"+
+			"2. MySQL is Started on this Computer.\n"+
+			"3. The Database '"+DbName+"' is created on the MySQL instance.\n");
+	} else {
+		console.log("Connected successfully to the Database '"+DbName+"'")
+	}
+});
 
 function formatDB_Info(){
 	return "[User='"+DbUserName+"'; Pass='"+DbPassword+
