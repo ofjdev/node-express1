@@ -41,7 +41,6 @@ function asyncAddConcert(){
 	var Place = document.getElementById('Place').value;
 	var Time = document.getElementById('Time').value;
 	var queryParams = '?ConcertName='+ConcertName+"&InterpretName="+InterpretName+"&Place="+Place+"&Time="+Time;
-	alert(queryParams);
 
 	$.get('/rest/addConcert'+queryParams, function(data, status) {
 	    alert(data);

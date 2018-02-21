@@ -47,8 +47,16 @@ block content
 						input(id='InterpretName', placeholder='Interpret Name', class='aligned-input')
 					p Place: 
 						input(id='Place', placeholder='Place', class='aligned-input')
-					p Time: 
-						input(id='Time', placeholder='Time', class='aligned-input')
+					div(id='romeLabel')
+						p Time: 
+							input(id='Time', placeholder='Time', class='aligned-input')
+					
+					script.
+						var timeInput = document.getElementById('Time');
+						var romeLabel = document.getElementById('romeLabel'); //'Time');
+						rome(romeLabel).on('data', function(value){
+							timeInput.value = value;
+						});
 
 				.modal-footer
 					button.btn.btn-success(type="a", data-dismiss="modal", onclick='asyncAddConcert()') Add Concert
