@@ -8,6 +8,7 @@ block content
 	link(rel='stylesheet', href='/stylesheets/modalStyle.css', type='text/css')
 	link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', type='text/css')
 
+	script(src='https://code.jquery.com/jquery-3.3.1.js')
 	script(src='/javascripts/openModal.js')
 	input(type='button', value='Add new Concert', onclick='openModal()')
 
@@ -36,16 +37,16 @@ block content
 					button.close(type="button", data-dismiss="modal", aria-hidden="true", onclick='closeModal()') &times;
 
 				.modal-body
-					.div
-						p Concert Name: 
-							input(id='ConcertName', placeholder='Concert Name' class='aligned-input')
-						p Interpret Name: 
-							input(id='InterpretName', placeholder='Interpret Name', class='aligned-input')
-						p Place: 
-							input(id='Place', placeholder='Place', class='aligned-input')
-						p Time: 
-							input(id='Time', placeholder='Time', class='aligned-input')
+					//.div
+					p Concert Name: 
+						input(id='ConcertName', placeholder='Concert Name' class='aligned-input')
+					p Interpret Name: 
+						input(id='InterpretName', placeholder='Interpret Name', class='aligned-input')
+					p Place: 
+						input(id='Place', placeholder='Place', class='aligned-input')
+					p Time: 
+						input(id='Time', placeholder='Time', class='aligned-input')
 
 				.modal-footer
-					button.btn.btn-success(type="button", data-dismiss="modal") Add Concert
+					button.btn.btn-success(type="a", data-dismiss="modal", onclick='asyncAddConcert()') Add Concert
 

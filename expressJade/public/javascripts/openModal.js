@@ -33,3 +33,19 @@ function hide(element){
 function showBlock(element){
 	element.style.display = "block";	
 }
+
+function asyncAddConcert(){
+
+	var ConcertName = document.getElementById('ConcertName').value;
+	var InterpretName = document.getElementById('InterpretName').value;
+	var Place = document.getElementById('Place').value;
+	var Time = document.getElementById('Time').value;
+	var queryParams = '?ConcertName='+ConcertName+"&InterpretName="+InterpretName+"&Place="+Place+"&Time="+Time;
+	alert(queryParams);
+
+	$.get('/rest/addConcert'+queryParams, function(data, status) {
+	    alert(data);
+	    var modalAddForm = document.getElementById('addForm');
+	    hide(modalAddForm);
+	});
+}
