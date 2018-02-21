@@ -5,7 +5,18 @@ block content
 
 	h1= title
 
-	ul
-	each concert, c in concerts
-		li <strong>#{concert.ConcertName}</strong> by <u>#{concert.InterpretName}</u> (Place: #{concert.Place}, Time: #{concert.Time})
+	div(class='divTable')
+		div(class='divTableHeading')
+			div(class='divTableRow')
+				div(class='divTableHead') Concert
+				div(class='divTableHead') Interpret
+				div(class='divTableHead') Place
+				div(class='divTableHead') Time
+		div(class='divTableBody')
+			each concert in concerts
+				div(class='divTableRow')
+					div(class='divTableCell') #{concert.ConcertName}
+					div(class='divTableCell') #{concert.InterpretName}
+					div(class='divTableCell') #{concert.Place}
+					div(class='divTableCell') #{concert.Time}
 
