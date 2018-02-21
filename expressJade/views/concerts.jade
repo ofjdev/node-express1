@@ -5,6 +5,7 @@ block content
 
 	h1= title
 
+	link(rel='stylesheet', href='/stylesheets/modalStyle.css', type='text/css')
 	script(src='/javascripts/openModal.js')
 	input(type='button', value='Add new Concert', onclick='openModal()')
 
@@ -22,4 +23,9 @@ block content
 					div(class='divTableCell') #{concert.InterpretName}
 					div(class='divTableCell') #{concert.Place}
 					div(class='divTableCell') #{concert.Time}
+
+	div(id='addForm' class='modal')
+		div(class='modal-content')
+			span(class='close' onclick='closeModal()')&times;
+			p Some text
 
