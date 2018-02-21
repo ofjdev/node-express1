@@ -11,21 +11,22 @@ block content
 	script(src='/javascripts/openModal.js')
 	input(type='button', value='Add new Concert', onclick='openModal()')
 
-	div(class='divTable')
-		div(class='divTableHeading')
-			div(class='divTableRow')
-				div(class='divTableHead') Concert
-				div(class='divTableHead') Interpret
-				div(class='divTableHead') Place
-				div(class='divTableHead') Time
-		div(class='divTableBody')
+	.divTable
+		.divTableHeading
+			.divTableRow
+				.divTableHead Concert
+				.divTableHead Interpret
+				.divTableHead Place
+				.divTableHead Time
+		.divTableBody
 			each concert in concerts
-				div(class='divTableRow')
-					div(class='divTableCell') #{concert.ConcertName}
-					div(class='divTableCell') #{concert.InterpretName}
-					div(class='divTableCell') #{concert.Place}
-					div(class='divTableCell') #{concert.Time}
+				.divTableRow
+					.divTableCell #{concert.ConcertName}
+					.divTableCell #{concert.InterpretName}
+					.divTableCell #{concert.Place}
+					.divTableCell #{concert.Time}
 
+	// would be interesting to use 'jade-bootstrap' nodejs library
 	div(id='addForm' class='modal')
 		.modal-dialog
 			.modal-content
@@ -35,7 +36,15 @@ block content
 					button.close(type="button", data-dismiss="modal", aria-hidden="true", onclick='closeModal()') &times;
 
 				.modal-body
-					p Body Content
+					.div
+						p Concert Name: 
+							input(id='ConcertName', placeholder='Concert Name' class='aligned-input')
+						p Interpret Name: 
+							input(id='InterpretName', placeholder='Interpret Name', class='aligned-input')
+						p Place: 
+							input(id='Place', placeholder='Place', class='aligned-input')
+						p Time: 
+							input(id='Time', placeholder='Time', class='aligned-input')
 
 				.modal-footer
 					button.btn.btn-success(type="button", data-dismiss="modal") Add Concert

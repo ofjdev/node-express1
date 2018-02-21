@@ -35,3 +35,9 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+// not used for now
+aligned-input {
+  display: inline-block;
+  float: left;
+}
