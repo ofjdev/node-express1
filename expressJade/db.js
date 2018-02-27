@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 
 var DbUserName = "root";
-var DbPassword = "";
-var DbName = "concertsdb";
-var DbHost = "localhost";
+var DbPassword = "cartellera";
+var DbName = "ConcertsDB";
+var DbHost = "35.187.166.22"; //"localhost";
 
 global.connectionWorked = false;
 
@@ -35,8 +35,8 @@ function formatDB_Info(){
 // INSERT INTO `concert` (`idConcert`, `ConcertName`, `InterpretName`, `Place`, `Time`) VALUES (NULL, 'Després de tot', 'Manu Guix', 'Razmatazz', '2018-02-16 21:00:00');
 exports.getConcerts = function(callback){
   	//Select all customers and return the result object:
-	console.log('DB: SELECT * FROM concert');
-	con.query("SELECT * FROM concert", function (err, result, fields) {
+	console.log('DB: SELECT * FROM Concert');
+	con.query("SELECT * FROM Concert", function (err, result, fields) {
 		if (err)
 			callback(err, false); //throw err;
 		else
@@ -53,7 +53,7 @@ exports.addConcert = function(concert, callback) {
 	// VALUES (NULL, 'Després de tot', 'Manu Guix', 'Razmatazz', '2018-02-16 21:00:00');
 	
 	
-	var queryStr = "INSERT INTO concert (idConcert, ConcertName, InterpretName, Place, Time) VALUES (NULL, '";
+	var queryStr = "INSERT INTO Concert (idConcert, ConcertName, InterpretName, Place, Time) VALUES (NULL, '";
 	queryStr += concert['ConcertName'] 	 + "','";
 	queryStr += concert['InterpretName'] + "','";
 	queryStr += concert['Place'] 		 + "','";
